@@ -1,0 +1,12 @@
+<div *ngIf="info.token; else loggedOut">
+  <h5 class="text-primary">Your Information</h5>
+  <p>
+    <strong>Username:</strong> {{info.username}}<br/>
+    <strong>Roles:</strong> {{info.authorities}}<br />
+    <strong>Token:</strong> {{info.token}}.
+  </p>
+</div>
+ 
+<ng-template #loggedOut>
+  <div class="center"><b>Welcome on my test application. To see content log in or register an account.</b></div>
+</ng-template>
