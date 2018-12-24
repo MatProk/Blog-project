@@ -3,13 +3,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.grokonez.jwtauthentication</groupId>
-	<artifactId>SpringBootJwtAuthentication</artifactId>
+	<groupId>com.mateusz</groupId>
+	<artifactId>BlogProject</artifactId>
 	<version>0.0.1</version>
 	<packaging>jar</packaging>
 
-	<name>SpringBootJwtAuthentication</name>
-	<description>SpringBootJwtAuthentication</description>
+	<name>BlogProject</name>
+	<description>BlogProject</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -25,6 +25,12 @@
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.4</version>
+			<scope>provided</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>

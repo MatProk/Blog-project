@@ -1,6 +1,6 @@
 package com.mateusz.app.security.services;
 
-import com.mateusz.app.model.User;
+import com.mateusz.app.domain.User;
 import com.mateusz.app.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
