@@ -3,16 +3,11 @@ package com.mateusz.app.controller;
 import com.mateusz.app.message.request.RegisterRequest;
 import com.mateusz.app.message.request.SignInRequest;
 import com.mateusz.app.message.response.JwtResponse;
-import com.mateusz.app.repository.RoleRepository;
-import com.mateusz.app.security.jwt.JwtProvider;
 import com.mateusz.app.service.sign.SignService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/api/auth")
 public class SignController {
@@ -23,15 +18,6 @@ public class SignController {
 	public SignController(SignService signService) {
 		this.signService = signService;
 	}
-
-	@Autowired
-    AuthenticationManager authenticationManager;
-
-	@Autowired
-	RoleRepository roleRepository;
-
-	@Autowired
-	JwtProvider jwtProvider;
 
 
 	@PostMapping("/signin")
