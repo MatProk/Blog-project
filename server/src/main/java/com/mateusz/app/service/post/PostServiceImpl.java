@@ -6,6 +6,7 @@ import com.mateusz.app.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,7 +19,7 @@ public class PostServiceImpl implements PostService{
 
     @Override
     public void addPost(PostRequest postRequest) {
-        postRepository.save(new Post(postRequest.getTitle(), postRequest.getContent()));
+        postRepository.save(new Post(postRequest.getTitle(), postRequest.getContent(), new Date()));
     }
 
     @Override

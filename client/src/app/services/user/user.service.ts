@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { TokenStorageService } from '../auth/token-storage.service';
+import { TokenStorageService } from '../../auth/token-storage.service';
  
 @Injectable({
   providedIn: 'root'
@@ -15,10 +15,9 @@ export class UserService {
  
   constructor(private http: HttpClient, private tokenService: TokenStorageService) { }
 
-getUser(): Observable<any> {
-return this.http.get(this.userProf,
-{ headers: {'Authorization': 'Bearer ' + this.tokenService.getToken()}});
-}
+  getUser(): Observable<any> {
+    return this.http.get(this.userProf, { headers: {'Authorization': 'Bearer ' + this.tokenService.getToken()}});
+  }
  
   getUserBoard(): Observable<string> {
     return this.http.get(this.user, { responseType: 'text' });

@@ -8,3 +8,16 @@
     margin: 10px;
     text-align: center;
 }
+
+.title{
+    font-size: 22px;
+    text-align: center;
+}
+
+.content{   
+    text-align: center;
+}
+
+.date{
+    text-align: right;
+}

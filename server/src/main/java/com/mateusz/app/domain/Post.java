@@ -7,6 +7,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Data
 @Entity
@@ -26,7 +27,7 @@ public class Post {
     private String content;
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private LocalDateTime createDate;
+    private Date createDate;
 
     public Post() {
     }
@@ -36,7 +37,7 @@ public class Post {
         this.content = content;
     }
 
-    public Post(String title, @NotNull String content, @NotNull LocalDateTime createDate) {
+    public Post(String title, @NotNull String content, @NotNull Date createDate) {
         this.title = title;
         this.content = content;
         this.createDate = createDate;
