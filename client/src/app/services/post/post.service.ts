@@ -20,8 +20,8 @@ export class PostService {
 
   private posts = 'http://localhost:8081/posts';
 
-  getPost(): Observable<PostExample> {
-    return this.http.get<PostExample>(this.posts);
+  getPost(): Observable<any> {
+    return this.http.get<any>(this.posts);
   }
 
   addPost(post: PostExample): Observable<PostExample>{

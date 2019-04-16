@@ -16,10 +16,10 @@
         <li *ngIf="authority === 'pm'" class="nav-item">
           <a class="nav-link" routerLink="pm">PM Board</a>
         </li>
-        <li *ngIf="!authority" class="nav-item">
+        <li *ngIf="!token" class="nav-item">
           <a class="nav-link" routerLink="auth/login">Login</a>
         </li>
-        <li *ngIf="!authority" class="nav-item">
+        <li *ngIf="!token" class="nav-item">
           <a class="nav-link" routerLink="/signup">Register</a>
         </li>
         <li *ngIf="token" class="nav-item">

@@ -4,6 +4,7 @@
 
 <div style="margin-top: 30px;" *ngFor="let post of postsArray">
   <div style="padding: 10px; border: 1px solid black;">
+    <div>{{post.id}}</div>
     <div class="title"><b>{{post.title}}</b></div>
     <div class="content">{{post.content}}</div>
     <br>
@@ -11,6 +12,11 @@
     <div class="date">{{post.createDate | date:'yyyy-MM-dd'}}</div>
     <div class="date">{{post.createDate | date:'HH:mm'}}</div>
     <div style="clear: both;"></div>
+    <b>KOMENTARZE</b>
+    <div *ngFor="let comment of comments[post.id-1].comments">
+        <div>{{comment.body}}</div>
+        <div>DODANO PRZEZ: {{comment.user.username}}</div><br>
+    </div>
   </div>
 </div>
  
