@@ -1,5 +1,7 @@
 package com.mateusz.app.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -7,6 +9,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import java.util.Collection;
 import java.util.Date;
 
 @Data
@@ -29,6 +32,14 @@ public class Post {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private Date createDate;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    @NotNull
+    private User user;
+
+    @OneToMany(mappedBy = "post", cascade = CascadeType.REMOVE)
+    private Collection<Comment> comments;
+
     public Post() {
     }
 
@@ -37,19 +48,10 @@ public class Post {
         this.content = content;
     }
 
-    public Post(String title, @NotNull String content, @NotNull Date createDate) {
+    public Post(String title, @NotNull String content, @NotNull Date createDate, User user) {
         this.title = title;
         this.content = content;
         this.createDate = createDate;
-    }
-
-    @Override
-    public String toString() {
-        return "Post{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", content='" + content + '\'' +
-//                ", userPost=" + userPost +
-                '}';
+        this.user = user;
     }
 }

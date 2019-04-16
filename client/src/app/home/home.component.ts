@@ -11,8 +11,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class HomeComponent implements OnInit {
   info: any;
-  posts;
-  postsArray: string [];
+  postsArray;
  
   constructor(private postService: PostService, private token: TokenStorageService) { }
  
@@ -23,7 +22,7 @@ export class HomeComponent implements OnInit {
 
     this.postService.getPost().subscribe(
       data => {
-        this.postsArray = data as string [];	 // FILL THE ARRAY WITH DATA.
+        this.postsArray = data;
         console.log(this.postsArray);
       },
       (err: HttpErrorResponse) => {

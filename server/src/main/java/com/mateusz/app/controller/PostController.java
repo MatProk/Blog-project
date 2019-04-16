@@ -2,9 +2,12 @@ package com.mateusz.app.controller;
 
 import com.mateusz.app.domain.Post;
 import com.mateusz.app.message.request.PostRequest;
+import com.mateusz.app.message.response.PostResponse;
 import com.mateusz.app.repository.PostRepository;
+import com.mateusz.app.security.services.UserPrinciple;
 import com.mateusz.app.service.post.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,8 +29,8 @@ public class PostController {
     }
 
     @PostMapping("/posts")
-    public void savePost(@RequestBody PostRequest postRequest){
-        postService.addPost(postRequest);
+    public void savePost(@AuthenticationPrincipal UserPrinciple userPrinciple, @RequestBody PostRequest postRequest){
+        postService.addPost(userPrinciple, postRequest);
     }
 
     @GetMapping("/post/{id}")

@@ -1,8 +1,4 @@
 <div *ngIf="info.token; else loggedOut">
-  <!-- <h5 class="text-primary">To do</h5>
-  <p>
-  wpisy na bloga, komentarze, like, dodawanie wpisow
-  </p> -->
 </div>
 
 
@@ -10,8 +6,11 @@
   <div style="padding: 10px; border: 1px solid black;">
     <div class="title"><b>{{post.title}}</b></div>
     <div class="content">{{post.content}}</div>
+    <br>
+    <div class="author">testowy autor</div>
     <div class="date">{{post.createDate | date:'yyyy-MM-dd'}}</div>
     <div class="date">{{post.createDate | date:'HH:mm'}}</div>
+    <div style="clear: both;"></div>
   </div>
 </div>
  

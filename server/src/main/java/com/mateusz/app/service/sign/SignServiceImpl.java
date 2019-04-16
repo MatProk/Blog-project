@@ -1,11 +1,13 @@
 package com.mateusz.app.service.sign;
 
+import com.mateusz.app.domain.Post;
 import com.mateusz.app.domain.Role;
 import com.mateusz.app.domain.RoleName;
 import com.mateusz.app.domain.User;
 import com.mateusz.app.message.request.RegisterRequest;
 import com.mateusz.app.message.request.SignInRequest;
 import com.mateusz.app.message.response.JwtResponse;
+import com.mateusz.app.repository.PostRepository;
 import com.mateusz.app.repository.RoleRepository;
 import com.mateusz.app.repository.UserRepository;
 import com.mateusz.app.security.jwt.JwtProvider;
@@ -19,6 +21,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -29,6 +32,9 @@ public class SignServiceImpl implements SignService{
 
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    PostRepository postRepository;
 
     @Autowired
     RoleRepository roleRepository;
@@ -51,8 +57,10 @@ public class SignServiceImpl implements SignService{
             throw new RuntimeException();
 
 
+
         User user = new User(registerRequest.getName(), registerRequest.getUsername(), registerRequest.getEmail(),
                 encoder.encode(registerRequest.getPassword()));
+
 
 
         Set<Role> roles = new HashSet<>();

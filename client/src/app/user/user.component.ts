@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user/user.service';
+import { PostService } from '../services/post/post.service';
+import { PostExample } from '../services/post';
  
 @Component({
   selector: 'app-user',
@@ -10,16 +12,19 @@ export class UserComponent implements OnInit {
   board: string;
   errorMessage: string;
  
-  constructor(private userService: UserService) { }
+  post = new PostExample();
+
+  constructor(private postService: PostService, private userService: UserService) { }
  
   ngOnInit() {
-    this.userService.getUserBoard().subscribe(
-      data => {
-        this.board = data;
-      },
-      error => {
-        this.errorMessage = `${error.status}: ${JSON.parse(error.error).message}`;
-      }
-    );
+    
+  } 
+
+  addPost(){
+    console.log(this.post);
+    this.postService.addPost(this.post).subscribe(res => {
+      this.post.title = "";
+      this.post.content = "";
+    })
   }
 }

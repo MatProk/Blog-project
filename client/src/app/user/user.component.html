@@ -1,3 +1,13 @@
-<h4>Content from Server</h4>
-{{board}}
-{{errorMessage}}
+<h1 style="text-align: center;">Dodawanie postów</h1>
+<br><br><br>
+
+<div style="font-weight: bold; text-align:center;" class="form-group">
+    <label>Tytuł</label>
+    <input [ngModelOptions]="{standalone: true}" [(ngModel)]="post.title" class="form-control">
+</div>
+<div style="font-weight: bold; text-align:center;" class="form-group">
+    <label>Treść</label>
+    <input [ngModelOptions]="{standalone: true}" [(ngModel)]="post.content" class="form-control">
+</div>
+
+<button style="font-weight: bold; padding:7px;" [routerLink]="home" (click)="addPost()" type="submit" class="add btn btn-info btn-block ">Dodaj post</button>
