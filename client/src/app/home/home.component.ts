@@ -14,7 +14,6 @@ import { CommentExample } from '../services/comment';
 export class HomeComponent implements OnInit {
   info: any;
   postsArray;
-  comments;
  
   constructor(private postService: PostService, private token: TokenStorageService) { }
  
@@ -26,14 +25,7 @@ export class HomeComponent implements OnInit {
     this.postService.getPost().subscribe(
       data => {
         this.postsArray = data;
-        this.comments = data;
         console.log(this.postsArray)
-
-        //this.comments = this.postsArray[1].comments;
-        console.log(this.comments)
-        // console.log(this.postsArray);
-        // this.comments = data.comments;
-        // console.log(this.comments);
         
       },
       (err: HttpErrorResponse) => {

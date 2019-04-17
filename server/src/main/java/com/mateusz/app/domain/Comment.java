@@ -18,7 +18,6 @@ public class Comment {
     private Long id;
 
     @Column(name = "body")
-    //@NotEmpty(message = "*Please write something")
     private String body;
 
     @Temporal(TemporalType.TIMESTAMP)

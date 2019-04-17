@@ -1,7 +1,5 @@
 package com.mateusz.app.repository;
 
-import java.util.Optional;
-
 import com.mateusz.app.domain.Role;
 import com.mateusz.app.domain.RoleName;
 import org.springframework.data.jpa.repository.JpaRepository;

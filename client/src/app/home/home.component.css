@@ -14,14 +14,14 @@
     text-align: center;
 }
 
-.content{   
-    text-align: center;
-}
-
 .date{
     text-align: right;
 }
 
 .author{
     text-align: right;
+}
+
+.comment{
+    text-align: center;
 }

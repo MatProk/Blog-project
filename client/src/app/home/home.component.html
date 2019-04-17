@@ -2,20 +2,21 @@
 </div>
 
 
-<div style="margin-top: 30px;" *ngFor="let post of postsArray">
+<div style="margin-top: 30px; margin-bottom: 100px;" *ngFor="let post of postsArray">
   <div style="padding: 10px; border: 1px solid black;">
-    <div>{{post.id}}</div>
     <div class="title"><b>{{post.title}}</b></div>
-    <div class="content">{{post.content}}</div>
+    <div class="comment">{{post.content}}</div>
     <br>
-    <div class="author">testowy autor</div>
+    <div class="author">{{post.user.username}}</div>
     <div class="date">{{post.createDate | date:'yyyy-MM-dd'}}</div>
     <div class="date">{{post.createDate | date:'HH:mm'}}</div>
-    <div style="clear: both;"></div>
-    <b>KOMENTARZE</b>
-    <div *ngFor="let comment of comments[post.id-1].comments">
-        <div>{{comment.body}}</div>
-        <div>DODANO PRZEZ: {{comment.user.username}}</div><br>
+    <div class="comment">
+      <b>KOMENTARZE</b><br>
+    </div>
+    <div *ngFor="let comment of post['comments']">
+        <div class="comment">{{comment.body}}</div>
+        <div class="comment">DODANO PRZEZ: {{comment.user.username}}</div>
+        <div class="comment">Dodano: {{comment.createDate | date: 'yyyy-MM-dd HH:mm'}}</div><br>
     </div>
   </div>
 </div>
